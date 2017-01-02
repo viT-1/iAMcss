@@ -27,7 +27,7 @@ Cодержимое репозитория свободно для распро�
 #Полезные ссылки:
 - TODO: Какие сложности доставляет каскад (статья на английском)
 - Обзор CSS-методологий ([видеолекция на русском](https://www.youtube.com/watch?v=P4ag4JSNWTM), [слайды](http://www.slideshare.net/ElizavetaSelivanova/ss-49224792))
-- [БЭМ](http://ru.bem.info/)
+- [БЭМ](http://ru.bem.info/), Виталий Харисов "[Вёрстка независимыми блоками](http://vitaly.harisov.name/article/independent-blocks.html)"
 - [AMCSS](https://amcss.github.io/)
 - [MCSS](https://github.com/operatino/MCSS#readme)
 - [AzaBEM](http://azagroup.ru/azabem-css-method/)
