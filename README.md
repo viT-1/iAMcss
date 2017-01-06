@@ -35,3 +35,4 @@ Cодержимое репозитория свободно для распро�
 - [OPOR](http://nano.sapegin.ru/all/opor-methodology)
 - [FUN](https://benfrain.com/enduring-css-writing-style-sheets-rapidly-changing-long-lived-projects/)
 - [SMACSS](https://smacss.com/)
+- [Примеры вёрстки с упором на WAI-ARIA-атрибуты](http://oaa-accessibility.org/)
