@@ -29,10 +29,10 @@ Cодержимое репозитория свободно для распро�
 - Обзор CSS-методологий ([видеолекция на русском](https://www.youtube.com/watch?v=P4ag4JSNWTM), [слайды](http://www.slideshare.net/ElizavetaSelivanova/ss-49224792))
 - [БЭМ](http://ru.bem.info/), Виталий Харисов "[Вёрстка независимыми блоками](http://vitaly.harisov.name/article/independent-blocks.html)"
 - [BEViS](https://github.com/bevis-ui/docs/blob/master/faq/bem-vs-bevis.md)
+- [MCSS](https://github.com/operatino/MCSS#readme) (автор методологии [рекомендует БЭМ](https://habrahabr.ru/post/256109/#comment_8442829))
 - [AMCSS](https://amcss.github.io/)
-- [MCSS](https://github.com/operatino/MCSS#readme)
 - [AzaBEM](http://azagroup.ru/azabem-css-method/)
 - [OPOR](http://nano.sapegin.ru/all/opor-methodology)
 - [FUN](https://benfrain.com/enduring-css-writing-style-sheets-rapidly-changing-long-lived-projects/)
-- [SMACSS](https://smacss.com/)
+- [SMACSS](https://smacss.com/) (автор методологии [рекомендует БЭМ](https://twitter.com/snookca/status/606908589295464449))
 - [Примеры вёрстки с упором на WAI-ARIA-атрибуты](http://oaa-accessibility.org/)
