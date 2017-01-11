@@ -85,7 +85,8 @@ Google уже [перешёл](https://material.angularjs.org/latest/CSS/button)
 iAMcss при работе со стандартными атрибутами (в т. ч. ARIA) не требует фанатичного соблюдения
 правила, что в значениях атрибута должно размещаться только его значение-модификатор.
 Пример такого отступления от правил:
-```/* iAMcss 1.0 */
+```css
+/* iAMcss 1.0 */
 .my-iTree[role = 'treeitem'] {} /* с использованием aria */
 .my-iTree[data-item] {} /* без использования aria, свой valid HTML "велосипед" */
 
@@ -129,7 +130,8 @@ required, aria-busy, aria-expanded, aria-grabbed, aria-invalid, aria-pressed, ar
 aria-selected. Дублировать disabled и checked в aria-disabled и aria-checked нет смысла.
 
 Селекторы могут выглядеть следующим образом:
-```/* iAMcss 1.0 */
+```css
+/* iAMcss 1.0 */
 .my-iTree[role = 'treeitem'][aria-expanded = 'true'] {}
 .my-iTreeTooltip[role = 'treeitem']:hover {}
 
