@@ -340,3 +340,4 @@ iAMcss 1.0 эволюционировал в iAMcss 2.0 только по одн
 - Сложный [микс кнопки и выпадающего списка](http://codepen.io/viT-1/pen/VjXybd) по iAMcss 1.0 (2016.12.08)
 - [FontAwesome чекбоксы/радио-кнопки](http://codepen.io/viT-1/pen/GrBwbE) с применением iAMcss 2.0 и поддержкой клавиатуры (2017.02.15)
 - [Применение стандартных атрибутов и checkbox-hack](https://codepen.io/viT-1/pen/KXyyGM) в соседстве с ARIA-атрибутами, сложные селекторы с применением iAMcss 2.0 (2017.10.09)
+- [Виджет vp-tree__list](https://codepen.io/viT-1/pen/XVxEgX) по iAMcss 2.0 и SVG-иконками разных размеров (2018.01.18)
