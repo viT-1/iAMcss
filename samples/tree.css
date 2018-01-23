@@ -1,0 +1,130 @@
+/**** vp-tree__list */
+*[vp-tree__label *= -sttOpen-] + *[vp-tree__list]{
+	display: block;
+}
+
+*[vp-tree__label *= -sttClose-] + *[vp-tree__list]{
+	display: none;
+}
+
+*[vp-tree__list *= -lstInner-]{
+	padding: 0;
+}
+
+*[vp-tree__item]{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-family: Arial;
+}
+
+*[vp-tree__label]{
+	position: relative;
+	color: black;
+}
+
+*[vp-tree__label *= -sttActive-]{
+	background: black;
+	color: white;
+}
+
+*[vp-tree__label]::before{
+	position: absolute;
+}
+
+*[vp-tree__label *= -sttLeaf-]{
+	cursor: default;
+}
+
+*[vp-tree__label *= -sttOpen-]
+, *[vp-tree__label *= -sttClose-]{
+	cursor: pointer;
+}
+
+/**** vp-tree__list -spcIco18px- */
+*[vp-tree__list *= -lstInner--spcIco18px-]{
+	margin: 0 0 0 23px;
+}
+
+*[vp-tree__label *= -spcIco18px-]{
+	margin: 0 0 0 24px;
+	font-size: 18px;
+	line-height: 24px;
+}
+
+*[vp-tree__label *= -spcIco18px-]::before{
+	top: 2px;
+	left: -24px;
+}
+
+*[vp-tree__label *= -sknWindows--sttOpen--spcIco18px-]::before{
+	content: url('https://raw.githubusercontent.com/google/material-design-icons/master/file/svg/design/ic_folder_open_18px.svg?sanitize=true');
+}
+
+*[vp-tree__label *= -sknWindows--sttClose--spcIco18px-]::before{
+	content: url('https://raw.githubusercontent.com/google/material-design-icons/master/file/svg/design/ic_folder_18px.svg?sanitize=true');
+}
+
+*[vp-tree__label *= -sknWindows--sttLeaf--spcIco18px-]::before{
+	content: url('https://raw.githubusercontent.com/google/material-design-icons/master/editor/svg/design/ic_insert_drive_file_18px.svg?sanitize=true');
+}
+/* vp-tree__list -spcIco18px- ****/
+
+/**** vp-tree__list -spcIco24px- */
+*[vp-tree__list *= -lstInner--spcIco24px-]{
+	margin: 0 0 0 30px;
+}
+
+*[vp-tree__label *= -spcIco24px-]{
+	margin: 0 0 0 32px;
+	font-size: 24px;
+	line-height: 32px;
+}
+
+*[vp-tree__label *= -spcIco24px-]::before{
+	left: -32px;
+	top: 3px;
+}
+
+*[vp-tree__label *= -sknWindows--sttOpen--spcIco24px-]::before{
+	content: url('https://raw.githubusercontent.com/google/material-design-icons/master/file/svg/design/ic_folder_open_24px.svg?sanitize=true');
+}
+
+*[vp-tree__label *= -sknWindows--sttClose--spcIco24px-]::before{
+	content: url('https://raw.githubusercontent.com/google/material-design-icons/master/file/svg/design/ic_folder_24px.svg?sanitize=true');
+}
+
+*[vp-tree__label *= -sknWindows--sttLeaf--spcIco24px-]::before{
+	content: url('https://raw.githubusercontent.com/google/material-design-icons/master/editor/svg/design/ic_insert_drive_file_24px.svg?sanitize=true');
+}
+/* vp-tree__list -spcIco24px- ****/
+
+/**** vp-tree__list -spcIco48px- */
+*[vp-tree__list *= -lstInner--spcIco48px-]{
+	margin: 0 0 0 60px;
+}
+
+*[vp-tree__label *= -spcIco48px-]{
+	margin: 0 0 0 64px;
+	font-size: 48px;
+	line-height: 64px;
+}
+
+*[vp-tree__label *= -spcIco48px-]::before{
+	left: -64px;
+	top: 4px;
+}
+
+*[vp-tree__label *= -sknWindows--sttOpen--spcIco48px-]::before{
+	content: url('https://raw.githubusercontent.com/google/material-design-icons/master/file/svg/design/ic_folder_open_48px.svg?sanitize=true');
+}
+
+*[vp-tree__label *= -sknWindows--sttClose--spcIco48px-]::before{
+	content: url('https://raw.githubusercontent.com/google/material-design-icons/master/file/svg/design/ic_folder_48px.svg?sanitize=true');
+}
+
+*[vp-tree__label *= -sknWindows--sttLeaf--spcIco48px-]::before{
+	content: url('https://raw.githubusercontent.com/google/material-design-icons/master/editor/svg/design/ic_insert_drive_file_48px.svg?sanitize=true');
+}
+/* vp-tree__list -spcIco48px- ****/
+/* vp-tree__list ****/
