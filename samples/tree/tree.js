@@ -42,26 +42,39 @@ var cVpCommon = {
 	}
 };
 
+window.addEventListener = window.addEventListener || function (e, f) { window.attachEvent('on' + e, f); };
+
 function appendEventHandlers(){
 	//На обработку щелчка выбираем только те элементы, которые содержат подсписки
 	var self = this;
 	var placeholder = document.getElementById('wgtBooks');
 	var clickFolders = placeholder.querySelectorAll('*[vp-tree__label *= "-sttOpen-"], *[vp-tree__label *= "-sttClose-"]');
+	
+	function folderOnClick(e){
+		cVpCommon.toggleAttrVal(this, 'vp-tree__label', '-sttOpen-', '-sttClose-');
+	}
+	
 	for (var i = 0; i < clickFolders.length; i++){
-		clickFolders[i].addEventListener("click", function( evt ){
-			cVpCommon.toggleAttrVal(this, 'vp-tree__label', '-sttOpen-', '-sttClose-');
-        }, false );
+		if (clickFolders[i].addEventListener)
+			clickFolders[i].addEventListener("click", folderOnClick, false );
+		else
+			clickFolders[i].attachEvent("onclick", folderOnClick);
+	}
+	
+	function labelOnClick(e){
+		var attrVal = this.getAttribute('vp-tree__label');
+		var prevActive = placeholder.querySelector('*[vp-tree__label *= "-sttActive-"]');
+		if (prevActive)
+			cVpCommon.removeAttrValNoDelim(prevActive, 'vp-tree__label', '-sttActive-');
+			
+		cVpCommon.addAttrValNoDelim(this, 'vp-tree__label', '-sttActive-');
 	}
 	
 	var clickActiveLabels = placeholder.querySelectorAll('*[vp-tree__label]');
 	for (var i = 0; i < clickActiveLabels.length; i++){
-		clickActiveLabels[i].addEventListener("click", function( evt ){
-			var attrVal = this.getAttribute('vp-tree__label');
-			var prevActive = placeholder.querySelector('*[vp-tree__label *= "-sttActive-"]');
-			if (prevActive)
-				cVpCommon.removeAttrValNoDelim(prevActive, 'vp-tree__label', '-sttActive-');
-			
-			cVpCommon.addAttrValNoDelim(this, 'vp-tree__label', '-sttActive-');
-		}, false );
+		if (clickActiveLabels[i].addEventListener)
+			clickActiveLabels[i].addEventListener("click", labelOnClick, false );
+		else
+			clickActiveLabels[i].attachEvent("onclick", labelOnClick);
 	}
 }

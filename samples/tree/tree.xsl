@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-<xsl:include href="common.xsl" />
-
 <xsl:output
 	method="html"
 	encoding="utf-8"
@@ -39,7 +37,8 @@
 <xsl:template match="li" mode="tree__item">
 	<xsl:variable name="sttNode">
 		<xsl:choose>
-			<xsl:when test="ul">sttOpen</xsl:when>
+			<xsl:when test="ul/li/ul">sttOpen</xsl:when>
+			<xsl:when test="ul">sttClose</xsl:when>
 			<xsl:otherwise>sttLeaf</xsl:otherwise>
 		</xsl:choose>
 	</xsl:variable>
@@ -48,5 +47,19 @@
 		<xsl:apply-templates select="ul" mode="tree__list" />
 	</li>
 </xsl:template>
+
+<xsl:template match="link[contains(@href, '.css') and not(@rel | @type)]">
+	<xsl:copy>
+		<xsl:apply-templates select="@*" />
+		<xsl:attribute name="rel">stylesheet</xsl:attribute>
+	</xsl:copy>
+</xsl:template>
+
+<xsl:template match="@* | node()">
+	<xsl:copy>
+		<xsl:apply-templates select="@* | node()" />
+	</xsl:copy>
+</xsl:template>
+
 
 </xsl:stylesheet>
