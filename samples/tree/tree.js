@@ -1,7 +1,5 @@
-appendEventHandlers();
-
 var cVpCommon = {
-	addAttrValNoDelim: function( o, attr_name,  val ) {
+	addAttrValNoDelim: function( o, attr_name,  val ){
 		if ( !o.hasAttribute( attr_name ) ) {
 			var attr = document.createAttribute( attr_name );
 			attr.value = ''
@@ -16,10 +14,11 @@ var cVpCommon = {
 		o.setAttribute( attr_name, attr_val );
 		
 		//ie8 fix
-		o.className = o.className;
+		if (this.ie < 9)
+			o.className = o.className;
 	}
 	
-	, removeAttrValNoDelim: function( o, attr_name, val ) {
+	, removeAttrValNoDelim: function( o, attr_name, val ){
 		if ( !o.hasAttribute( attr_name ) ) return;
 
 		var attr_val = o.getAttribute( attr_name );
@@ -27,10 +26,11 @@ var cVpCommon = {
 		o.setAttribute( attr_name, attr_val );
 		
 		//ie8 fix
-		o.className = o.className;
+		if (this.ie < 9)
+			o.className = o.className;
 	}
 	
-	, toggleAttrVal: function( o, attr_name, val_a, val_b ) {
+	, toggleAttrVal: function( o, attr_name, val_a, val_b ){
 		if ( !o.hasAttribute( attr_name ) ) return;
 		
 		var attrVal = o.getAttribute( attr_name );
@@ -47,11 +47,31 @@ var cVpCommon = {
 			this.addAttrValNoDelim( o, attr_name, val_b );
 		
 		//ie8 fix
-		o.className = o.className;
+		if (this.ie < 9)
+			o.className = o.className;
 	}
+	
+	, ie: (function(){
+		var undef,
+			v = 3,
+			div = document.createElement('div'),
+			all = div.getElementsByTagName('i');
+
+		while (
+			div.innerHTML = '<!--[if gt IE ' + (++v) + ']><i></i><![endif]-->',
+			all[0]
+		);
+	
+		return v > 4 ? v : undef;
+	}())
 };
 
 window.addEventListener = window.addEventListener || function (e, f) { window.attachEvent('on' + e, f); };
+
+function setIeBody(){
+	if (cVpCommon.ie)
+		document.body.className = 'ie' + cVpCommon.ie;
+}
 
 function appendEventHandlers(){
 	//На обработку щелчка выбираем только те элементы, которые содержат подсписки
@@ -63,9 +83,11 @@ function appendEventHandlers(){
 		cVpCommon.toggleAttrVal(target, 'vp-tree__label', '-sttOpen-', '-sttClose-');
 		
 		//ie8 fix
-		var sibl = target.nextSibling;
-		if (sibl)
-			sibl.className = sibl.className;
+		if (cVpCommon.ie < 9){
+			var sibl = target.nextSibling;
+			if (sibl)
+				sibl.className = sibl.className;
+		}
 	}
 	
 	for (var i = 0; i < clickFolders.length; i++){
@@ -85,9 +107,11 @@ function appendEventHandlers(){
 		cVpCommon.addAttrValNoDelim(target, 'vp-tree__label', '-sttActive-');
 		
 		//ie8 fix
-		var sibl = target.nextSibling;
-		if (sibl)
-			sibl.className = sibl.className;
+		if (cVpCommon.ie < 9){
+			var sibl = target.nextSibling;
+			if (sibl)
+				sibl.className = sibl.className;
+		}
 	}
 	
 	var clickActiveLabels = placeholder.querySelectorAll('*[vp-tree__label]');
@@ -98,3 +122,6 @@ function appendEventHandlers(){
 			clickActiveLabels[i].attachEvent("onclick", labelOnClick);
 	}
 }
+
+setIeBody();
+appendEventHandlers();

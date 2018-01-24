@@ -28,7 +28,7 @@
 	color: white;
 }
 
-*[vp-tree__label]::before{
+*[vp-tree__label]:before{
 	position: absolute;
 }
 
@@ -127,4 +127,23 @@
 	content: url('https://raw.githubusercontent.com/google/material-design-icons/master/editor/svg/design/ic_insert_drive_file_48px.svg?sanitize=true');
 }
 /* vp-tree__list -spcIco48px- ****/
+
+/**** vp-tree__list ie8 without svg fix */
+.ie8 *[vp-tree__label]:before{
+	left: -2ex;
+}
+
+.ie8 *[vp-tree__label *= "-sttOpen-"]:before{
+	content: '▼ ';
+}
+
+.ie8 *[vp-tree__label *= "-sttClose-"]:before{
+	content: '▲ ';
+}
+
+.ie8 *[vp-tree__label *= "-sttLeaf-"]:before{
+	content: '► ';
+}
+/* vp-tree__list ie8 without svg fix ****/
+
 /* vp-tree__list ****/
