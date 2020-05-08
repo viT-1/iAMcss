@@ -11,9 +11,6 @@
 # Документация и примеры
 Выложены на [странице](https://github.com/viT-1/iAMcss/blob/master/styleguide.md)
 
-# Обновления
-нет
-
 # История создания
 - Посещение Яндекс-субботника и первые вопросы
 - Оценка "жуткости" БЭМа
@@ -22,9 +19,9 @@
 
 # Исходники
 Cодержимое репозитория свободно для распростронения и изменения при указании сайта оригинального проекта — viT-1.github.io/iAMcss(https://viT-1.github.io/iAMcss),
-и имени автора [Пинчук Виталий](http://viT-1.livejournal.com)
+и имени автора [Пинчук Виталий](http://viT-1.blogspot.com)
 
-#Полезные ссылки:
+# Полезные ссылки:
 - TODO: Какие сложности доставляет каскад (статья на английском)
 - Обзор CSS-методологий ([видеолекция на русском](https://www.youtube.com/watch?v=P4ag4JSNWTM), [слайды](http://www.slideshare.net/ElizavetaSelivanova/ss-49224792))
 - [БЭМ](http://ru.bem.info/), Виталий Харисов "[Вёрстка независимыми блоками](http://vitaly.harisov.name/article/independent-blocks.html)"
@@ -35,5 +32,11 @@ Cодержимое репозитория свободно для распро�
 - [OPOR](http://nano.sapegin.ru/all/opor-methodology)
 - [FUN](https://benfrain.com/enduring-css-writing-style-sheets-rapidly-changing-long-lived-projects/)
 - [SMACSS](https://smacss.com/) (автор методологии [рекомендует БЭМ](https://twitter.com/snookca/status/606908589295464449))
+
 - [Примеры вёрстки с упором на WAI-ARIA-атрибуты](http://oaa-accessibility.org/)
 - [Рекомендации](https://github.com/mediaelement/mediaelement/issues/1849#issuecomment-249254251) по рефакторингу эскалированной специфичности
+- [CSS selectors performance 2018](https://www.sitepoint.com/optimizing-css-id-selectors-and-other-myths/)
+- [Class vs data- attributes selectors performance](https://gomakethings.com/how-performant-are-data-attributes-as-selectors/)
+- [JS performance of data-attributes](https://jsperf.com/data-dataset)
+- [What shouldn’t I use data attributes for?](http://html5doctor.com/html5-custom-data-attributes/)
+- [WHATWG html custom attribute naming conventions](https://github.com/whatwg/html/issues/2271)
