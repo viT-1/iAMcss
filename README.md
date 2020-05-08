@@ -36,3 +36,4 @@ Cодержимое репозитория свободно для распро�
 - [FUN](https://benfrain.com/enduring-css-writing-style-sheets-rapidly-changing-long-lived-projects/)
 - [SMACSS](https://smacss.com/) (автор методологии [рекомендует БЭМ](https://twitter.com/snookca/status/606908589295464449))
 - [Примеры вёрстки с упором на WAI-ARIA-атрибуты](http://oaa-accessibility.org/)
+- [Рекомендации](https://github.com/mediaelement/mediaelement/issues/1849#issuecomment-249254251) по рефакторингу эскалированной специфичности
