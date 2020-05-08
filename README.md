@@ -40,3 +40,4 @@ Cодержимое репозитория свободно для распро�
 - [JS performance of data-attributes](https://jsperf.com/data-dataset)
 - [What shouldn’t I use data attributes for?](http://html5doctor.com/html5-custom-data-attributes/)
 - [WHATWG html custom attribute naming conventions](https://github.com/whatwg/html/issues/2271)
+- [Theming with css-variables](https://www.sitepoint.com/css-theming-custom-properties-javascript/)

@@ -215,7 +215,7 @@ iAMcss перед реализацией БЭМа, использующей ат
 т.е. предыдущий пример следует упростить до варианта `*[my-sidebar__caption *= -slave-]`, добавив
 соответствующий модификатор в разметку.
 
-##Состояние
+## Состояние
 Состояние - сущность-признак отвечающая за отображение элемента и в целом блока (состояние блока задаёт
 контекст отображения элементов блока), в отличие от модификаторов, динамически изменяется.
 Элемент/контейнер блока может находится сразу в нескольких состояниях.
@@ -269,6 +269,47 @@ aria-selected, приводит к усложнению и увеличению 
 Необходимо понимать, что составные селекторы наращивают специфичность, старайтесь придерживаться
 минимальной специфичности (либо какой-то базовой), чтобы при написании переопределяемого селектора
 не приходилось искуственно наращивать специфичность.
+
+## Модификатор темы (skin) / view
+Если раньше мы писали что-то типа `.dark .myNumberInputLabel`,
+то теперь по классике БЭМа пишем:
+```css
+/* iAMcss 1.0 */
+.my-iInput[data-label *= '-number-'][data-label *= '-dark-'] {}
+.my-iInput[data-label *= '-dark-'][type = "number"] {}
+
+/* iAMcss 1.1 */
+.label[data-my-input *= '-number-'][data-my-input *= '-dark-'] {}
+.label[data-my-input *= '-dark-'][type = "number"] {}
+
+/* iAMcss 2.0 */
+*[data-my-input__label *= '-number-'][data-my-input__label *= '-dark-'] {}
+*[data-my-input__label *= '-dark-'][type = "number"] {}
+
+/* iAMcss 2.2 */
+*[data-label *= '^my-input^'][data-label *= '-number-'][data-label *= '-dark-'] {}
+*[data-label *= '^my-input^'][data-label *= '-dark-'][type = "number"] {}
+```
+а используя возможности [css-variables](https://medium.com/front-end-weekly/theming-with-css-variables-e4f30343c7c7)
+(для ie11 [polyfill](https://github.com/nuxodin/ie11CustomProperties), [тест](https://jsbin.com/dapunoquyo/1/)) итого лучше:
+```css
+.sknLight { --t-primary-color: black; } /* Тема по умолчанию */ 
+.sknDark { --t-primary-color: white; }
+
+/* iAMcss 1.0 */
+.my-iInput[data-label][type = "number"] { color: var(--t-primary-color); }
+
+/* iAMcss 1.1 */
+.label[data-my-input][type = "number"] { color: var(--t-primary-color); }
+
+/* iAMcss 2.0 */
+*[data-my-input__label][type = "number"] { color: var(--t-primary-color); }
+
+/* iAMcss 2.2 */
+*[data-label *= '^my-input^'][type = "number"] { color: var(--t-primary-color); }
+```
+В модификаторах "темы" может быть нэйминг не только касающийся цветовой палитры,
+но и версии, ориентация (горизонтальная/вертикальная) и прочее.
 
 ### Состояние по умолчанию / undefined
 
