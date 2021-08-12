@@ -5,7 +5,7 @@
 Для удобства копирования и меньшего количества символов в селекторах
 разделять слова принято символом "_",
 а в качестве разделителей модификаторов использовать вместо фигурных скобок символ "-".
-[Пример](https://github.com/viT-1/iAMcss/blob/master/v3/samples/quote/quote.htm)
+[Пример](https://github.com/viT-1/iAMcss/blob/master/v3/samples/quote/quote.htm)[html](https://htmlpreview.github.io/?https://github.com/viT-1/iAMcss/blob/bcc0fe47e208f50598e65b624e3be30fe0ff4f06/v3/samples/quote/quote.htm)
 
 ## Выбор html-элементов
 Выбор тэга, на который вешается iam-атрибут рекомендуется основывать на идеологии "naked css"
