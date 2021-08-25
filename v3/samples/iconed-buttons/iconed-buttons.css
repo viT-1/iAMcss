@@ -1,0 +1,233 @@
+/* <iam-btn> */
+[iam-btn-title]
+, [iam-btn-i] {
+	display: inline-block;
+	margin: 4px 0;
+}
+
+[iam-btn] {
+	/* font: caption; */
+	font-size: 16px;
+	font-weight: normal;
+	background: ButtonFace; /* user OS theme as default */
+	border: none;
+	color: ButtonText;
+	cursor: pointer; /* mozilla forms.css label cursor can't be overrided! */
+	display: inline-block;
+	margin: 0 .5ex .5ex 0;
+	padding: 1px 1ex;
+	position: relative;
+	clear: both; /* fix float icons */
+}
+
+[iam-btn ~= iam-dd-list] {
+	background: none;
+	margin-right: 0;
+}
+
+/* simplest btn (mix) */
+[iam-btn][iam-btn-title] {
+	padding: 5px 1ex;
+}
+
+[iam-btn][disabled]
+, [disabled] [iam-btn-title] {
+	text-decoration: line-through;
+	color: #777;
+}
+
+/* help suggestion only if title exists */
+[iam-btn][disabled][title]
+, [disabled][title] [iam-btn-title] {
+	cursor: help;
+}
+
+[iam-btn]:focus {
+	outline: none;
+}
+
+/* specificy but not using js --focus state */
+[iam-btn]:focus [iam-btn-title]
+, [iam-btn-title ~= focus]
+, [iam-btn-title]:focus {
+	text-decoration: underline;
+}
+
+/* border is native for push-button */
+[iam-btn ~= bordered]
+, [iam-btn ~= push] {
+	border: 1px solid;
+	padding: 0 1ex;
+}
+
+[iam-btn ~= push] {
+	background: DodgerBlue;
+	color: ButtonFace;
+}
+
+/* <iam-theme = rounded> */
+[iam-btn]
+, [iam-dd-list] {
+	border-radius: 0; /* fallback if css3 is not supported or theme is not defined */
+	border-radius: var(--rounded-border-radius);
+}
+/* </iam-theme = rounded> */
+
+/* individual button style without common theme */
+[iam-btn ~= rounded]
+, [iam-dd-list ~= rounded] {
+	border-radius: 1ex;
+}
+
+[iam-btn-title-key] {
+	text-decoration: underline;
+}
+
+[iam-btn-i] {
+	float: left; /* avoid unexpected space */
+	height: 16px;
+	/* vertical-align: -28%;*/
+	margin-right: .5ex;
+}
+
+/* crisp part of ico! */
+[iam-btn-title ~= i]:before {
+	content: " "; /* generated content (instead of background-image) not scaled!!! */
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	margin-right: .5ex;
+	margin-top: 1px;
+	background-size: 100% 100%; /* css3 property */
+	background-position: center center;
+}
+/* </iam-btn> */
+
+/* <button dropdown> */
+[iam-dd-btn]:after {
+	height: 16px;
+	line-height: 16px;
+	margin: 0 0 0 .5ex;
+}
+
+[iam-dd-btn ~= i]:after {
+	display: inline-block;
+	content: ' ';
+	width: 16px;
+	padding: 0;
+}
+
+/* specificy but only for standard attribute */
+/* :disabled may not working, because of tag */
+[disabled] [iam-btn-i]
+, [disabled] [iam-dd-btn ~= i]:after
+, [disabled] [iam-btn-title ~= i]:before
+, [disabled][iam-btn-title ~= i]:before {
+	opacity: .5;
+}
+
+[iam-dd-chk-expanded]
++ [iam-dd-btn ~= i]:after {
+	background: url(ico/dd-not-expanded_tn.gif);
+}
+
+[iam-dd-chk-expanded]
++ [iam-dd-btn ~= utf]:after {
+	content: '\25be';
+}
+
+[iam-dd-chk-expanded]
+~ [iam-dd-list] {
+	display: none;
+}
+
+[iam-dd-chk-expanded]:checked
+~ [iam-dd-list] {
+	display: block;
+}
+
+[iam-dd-chk-expanded]:checked
++ [iam-dd-btn ~= i]:after {
+	background: url(ico/dd-expanded_tn.gif);
+}
+
+[iam-dd-chk-expanded]:checked
++ [iam-dd-btn ~= utf]:after {
+	content: '\25b4';
+}
+
+/* hidden state controlled by checkbox */
+[iam-dd-chk-expanded] {
+	display: none;
+}
+
+[iam-dd-list] {
+	display: block;
+	background: ButtonFace;
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	width: 100%;
+	list-style: none;
+	margin: 3px 0 0;
+	padding: 0;
+}
+
+[iam-dd-list ~= bordered] {
+	border: 1px solid;
+	margin: 0 0 0 -1px;
+}
+
+[iam-dd-li-key] {
+	float: right;
+	text-transform: uppercase;
+	padding: 5px 1ex 5px 0;
+}
+/* </button dropdown> */
+
+/* <iam-ref-btn> */
+[iam-ref-btn] {
+	background: none;
+	border: none;
+	color: rgb(0, 102, 204);
+	display: inline-block;
+	font-size: 1em;
+	padding: 0;
+	position: relative;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+[iam-ref-btn]:focus {
+	outline: none;
+}
+
+[iam-ref-btn]:hover
+, [iam-ref-btn]:focus {
+	color: DodgerBlue;
+}
+
+[iam-ref-btn][disabled]
+, [disabled] [iam-ref-btn-title] {
+	cursor: help;
+	text-decoration: line-through;
+	color: #777;
+}
+
+[iam-ref-btn-title] {
+	display: inline-block;
+	border-bottom: dashed 1px;
+}
+
+[iam-ref-btn-i] {
+	height: 16px;
+	width: 16px;
+	margin-right: .5ex;
+}
+/* </iam-ref-btn> */
+/* <iam-toolbar> */
+[iam-toolbar-group] {
+	display: inline-block;
+	list-style: none;
+}
+/* </iam-toolbar> */

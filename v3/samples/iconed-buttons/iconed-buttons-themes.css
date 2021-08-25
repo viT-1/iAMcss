@@ -1,0 +1,10 @@
+[iam-themes ~= rounded] {
+	--rounded-border-radius: 1ex;
+}
+
+[iam-themes ~= light] {
+	--light-iam-btn-background-color: ButtonFace;
+}
+
+[iam-themes ~= dark] {
+}

@@ -1,0 +1,248 @@
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="iconed-buttons.css" />
+<link rel="stylesheet" type="text/css" href="iconed-buttons-icosrc.css" />
+<link rel="stylesheet" type="text/css" href="iconed-buttons-themes.css" />
+<style>
+[iam-h] {
+	display: block;
+	font-weight: bolder;
+	margin: .5em 0;
+}
+
+[iam-h ~= h1] {
+	font-size: 1.6em;
+}
+
+[iam-h ~= h2] {
+	font-size: 1.2em;
+}
+
+/* <iam-example-area> */
+[iam-example-area] {
+	background: #bbc;
+	font-family: Arial;
+	padding: 1em;
+}
+
+[iam-p ~= iam-example-area] {
+	margin: 1em 0 0;
+}
+
+[iam-p ~= iam-example-area]:first-child {
+	margin-top: 0;
+}
+
+input[iam-example-disabled-chk]:not([checked])
++ label + [iam-example-area] > [iam-example-disabled-btn] {
+	display: none;
+}
+
+input[iam-example-disabled-chk]:not([checked])
++ label + [iam-example-area] > [iam-example-enabled-btn]
+, input[iam-example-disabled-chk]:checked
++ label + [iam-example-area] > [iam-example-disabled-btn] {
+	display: inline-block;
+}
+
+input[iam-example-disabled-chk]:checked
++ label + [iam-example-area] > [iam-example-enabled-btn] {
+	display: none;
+}
+/* </iam-example-area> */
+</style>
+<body iam-body iam-themes="light">
+<label iam-h="h1" role="heading">iAMCss (syntax v3.2.1) buttons</label>
+<p>Fast verdict: for buttons use buttons or web-components derived from buttons.
+For dropdowns use b (or another tag - another example),
+a for hyperlinks, label for titles/headings.</p>
+<label iam-h="h2" role="heading" id="example-01" for="example-01-content">
+	Example 01: &lt;button&gt; & &lt;img&gt;</label>
+<input id="example-01-chk" iam-example-disabled-chk type="checkbox" />
+<label for="example-01-chk">Need to show disabled button</label>
+<div id="example-01-content" iam-example-area role="section">
+	<button iam-btn iam-btn-title disabled iam-example-disabled-btn title="Uncheck checkbox above, please">
+		is not enabled
+	</button>
+	<button iam-btn iam-example-enabled-btn>
+		<span iam-btn-title>btn is enabled</span>
+	</button>
+	<button iam-btn="push">
+		<label iam-btn-title>Default <span iam-btn-title-key>a</span>ction</label>
+	</button>
+	<button iam-btn="bordered">
+		<label iam-btn-title>Bordered</label>
+	</button>
+	<button iam-btn="rounded">
+		<label iam-btn-title>Rounded</label>
+	</button>
+	<button iam-btn="rounded">
+		<img iam-btn-i src="ico/print.ico" /><label iam-btn-title>Rounded & iconed</label>
+	</button>
+	<button iam-btn="push" disabled title="Very strange use-case">
+		<img iam-btn-i src="ico/setup.ico" />
+		<label iam-btn-title>Default disabled</label>
+	</button>
+	Title mix: <button iam-btn iam-btn-title>Minimal</button>
+</div>
+<label iam-h="h2" role="heading" id="example-01a" for="example-01a-content">
+	Example 01a: predefined iconed &lt;button&gt; & root themes</label>
+<p>Without title mix, because of ico as background on :pseudo-element.</p>
+<p>One element for declaration themes: rounded & dark.</p>
+<div id="example-01a-content" iam-example-area iam-themes="rounded dark"
+	role="section">
+	buttons: <button iam-btn disabled>
+		<label iam-btn-title="i i-stop">Don't do it!</label>
+	</button>
+	<button iam-btn>
+		<label iam-btn-title="i i-refresh">Refresh it!</label>
+	</button>
+	<button iam-btn>
+		<label iam-btn-title="i i-setup">Setup</label>
+	</button>
+	<button iam-btn>
+		<label iam-btn-title="i i-print">Print</label>
+	</button>
+	b: <b iam-btn role="button">
+		<label iam-btn-title="i i-visual-studio">Run Visual Studio</label>
+	</b>
+</div>
+<!--input tag in button tag is not working correctly-->
+<label iam-h="h2" role="heading" id="example-02" for="example-02-content">
+	Example 02: &lt;b&gt; dropdowns. Mixes dd-btn:after with title</label>
+<p>Without standard button behaviour (disabled, tab, focus, imitate pushdown by moving text).</p>
+<div id="example-02-content" iam-example-area>
+	button: <button iam-btn="rounded">
+		<label iam-btn-title>Rounded</label>
+	</button>
+	b: <b iam-btn="rounded" disabled role="button" aria-haspopup="true">
+		<input iam-dd-chk-expanded id="example02[0]" type="checkbox" hidden />
+		<label iam-dd-btn="i" iam-btn-title for="example02[0]">Rounded img drop</label>
+		<ul iam-dd-list="rounded">
+			<li><button iam-btn="iam-dd-list" iam-btn-title><span iam-btn-title-key>S</span>tand up</button></li>
+			<li><button iam-btn="iam-dd-list" iam-btn-title>Tear <span iam-btn-title-key>d</span>rop</button></li>
+			<li><button iam-btn="iam-dd-list" iam-btn-title disabled title="You can't do that!">
+				<span iam-btn-title-key>T</span>ranclucate</button></li>
+		</ul>
+	</b>
+	<b iam-btn="bordered" role="button" aria-haspopup="true">
+		<input iam-dd-chk-expanded id="example02[1]" type="checkbox" hidden />
+		<label iam-dd-btn="i" iam-btn-title for="example02[1]">Bordered img drop</label>
+		<ul iam-dd-list="bordered">
+			<li><button iam-btn="iam-dd-list" iam-btn-title>
+				<span iam-btn-title-key>S</span>tand up</button><span iam-dd-li-key>Ctrl + S</span></li>
+			<li><button iam-btn="iam-dd-list" iam-btn-title>
+				Tear <span iam-btn-title-key>d</span>rop</button><span iam-dd-li-key>Ctrl + D</span></li>
+			<li><button iam-btn="iam-dd-list" iam-btn-title disabled title="You can't do that!">
+				<span iam-btn-title-key>T</span>ranclucate</button></li>
+		</ul>
+	</b>
+	<b iam-btn role="button" aria-haspopup="true">
+		<input iam-dd-chk-expanded id="example02[3]" type="checkbox" hidden />
+		<label iam-dd-btn="utf" iam-btn-title for="example02[3]">Char dropdown</label>
+		<ul iam-dd-list>
+			<li><button iam-btn="iam-dd-list" iam-btn-title>
+				<span iam-btn-title-key>S</span>tand up
+				</button></li>
+			<li><button iam-btn="iam-dd-list" iam-btn-title>
+				Tear <span iam-btn-title-key>d</span>rop
+				</button></li>
+			<li><button iam-btn="iam-dd-list" iam-btn-title disabled title="You can't do that!">
+				<span iam-btn-title-key>T</span>ranclucate</button></li>
+		</ul>
+	</b>
+	<b iam-btn role="button" aria-haspopup="true">
+		<label iam-btn-title onclick="alert('Default, main button action')">Two actions, dd iconed p</label>
+		<input iam-dd-chk-expanded id="example02[4]" type="checkbox" hidden />
+		<label iam-dd-btn="utf" for="example02[4]"><!--IE6fix--></label>
+		<ul iam-dd-list>
+			<li><button iam-btn="iam-dd-list">
+				<label iam-btn-title="i i-chrome">
+				<span iam-btn-title-key>C</span>hrome</label></button></li>
+			<li><button iam-btn="iam-dd-list" disabled title="No way!">
+				<label iam-btn-title="i i-edge">
+				<span iam-btn-title-key>E</span>dge</label></button></li>
+			<li><button iam-btn="iam-dd-list">
+				<label iam-btn-title="i i-opera">
+				<span iam-btn-title-key>O</span>pera</label></button></li>
+			<li><b iam-btn iam-btn-title>Not iconed list item</b></li>
+		</ul>
+	</b>
+	<b iam-btn iam-btn-title role="button">Simplest b</b>
+	<b iam-btn iam-btn-title role="button" disabled>Disabled b</b>
+	<!--
+	dl dropdown with selected value:
+	<dl iam-btn role="button" aria-haspopup="true">
+		<dt iam-button-title>Char dl-dropdown</dt>
+		<dd>Some text</dd>
+	</dl>
+	-->
+</div>
+<label iam-h="h2" role="heading" id="example-03" for="example-03-content">
+	Example 03: &lt;a&gt; as buttons</label>
+<p>Uses standard button behaviour (:disabled?!, tab, focus, click), but is not imitated onclick pushdown (by moving text).</p>
+<p>Can not be used on dropdowns, because of all hyperlink area focus,
+which make focus on all dropdown items at the same time!</p>
+<div id="example-03-content" iam-example-area>
+	<!--id for same focus-->
+	<a iam-btn href="#ex03a01" id="ex03a01" role="button">
+		<span iam-btn-title>Simple</span>
+	</a>
+	<a iam-btn disabled href="#ex03a02" id="ex03a02" role="button">
+		<span iam-btn-title>Disabled</span>
+	</a>
+	<a iam-btn="bordered" href="#ex03a03" id="ex03a03" role="button">
+		<span iam-btn-title>Bordered</span>
+	</a>
+	<a iam-btn="rounded" href="#ex03a04" id="ex03a04" role="button">
+		<img iam-btn-i src="ico/print.ico" /><span iam-btn-title><span iam-btn-title-key>P</span>rint</span>
+	</a>
+	<a iam-btn href="#ex03a05" id="ex03a05" role="button" aria-haspopup="true">
+		<input iam-dd-chk-expanded id="ex03a05c[0]" type="checkbox" hidden />
+		<label iam-dd-btn="utf" iam-btn-title for="ex03a05c[0]">Char dropdown</label>
+		<ul iam-dd-list>
+			<li><button iam-btn="iam-dd-list">
+				<span iam-btn-title><span iam-btn-title-key>S</span>tand up</span>
+				</button></li>
+			<li><button iam-btn="iam-dd-list">
+				<span iam-btn-title>Tear <span iam-btn-title-key>d</span>rop</span>
+				</button></li>
+			<li><button iam-btn="iam-dd-list" disabled title="You can't do that!">
+				<span iam-btn-title><span iam-btn-title-key>T</span>ranclucate</span>
+				</button></li>
+		</ul>
+	</a>
+</div>
+<label iam-h="h2" role="heading" id="example-04" for="example-04-content">
+	Example 04: &lt;button&gt; as pseudo-links instead of using &lt;a href="#"&gt;</label>
+<p>Simplest button behaviour but text-styled, without rectangle background & :visited redefining.</p>
+<p>Disabled icons aren't change opacity because of its common space (not own as in buttons rectangles).</p>
+<div id="example-04-content" iam-example-area>
+	<p iam-p="iam-example-area">
+		a: <a href="#" iam-ref-btn iam-ref-btn-title>Title mix pseudo-link</a>,
+		<a href="#" iam-ref-btn><img iam-ref-btn-i src="ico/print.ico"><label iam-ref-btn-title>Iconed</label></a>,
+		<a href="#" iam-ref-btn iam-ref-btn-title disabled>Disabled</a>,
+		<a href="#" iam-ref-btn><label iam-ref-btn-title>No mix pseudo-link</label></a>
+	</p>
+	<p iam-p="iam-example-area">
+		button: <button iam-ref-btn iam-ref-btn-title>Title mix pseudo-link</button>,
+		<button iam-ref-btn><img iam-ref-btn-i src="ico/print.ico"><label iam-ref-btn-title>Iconed</label></button>,
+		<button iam-ref-btn iam-ref-btn-title disabled>Disabled</button>,
+		<button iam-ref-btn disabled><img iam-ref-btn-i src="ico/print.ico"><label iam-ref-btn-title>Iconed & disabled</label></button>,
+		<button iam-ref-btn><label iam-ref-btn-title>No mix pseudo-link</label></button>
+	</p>
+	<p iam-p="iam-example-area">Some other text</p>
+</div>
+<label iam-h="h2" role="heading" id="example-05" for="example-05-content">
+	Example 05: <s>web-components</s> (IE11) vue-components</label>
+<div id="example-05-content" iam-example-area>
+	<iam-btn mods="rounded bordered"><label iam-btn-title><span iam-btn-title-key>T</span>est vue component</label></iam-btn>
+	<iam-btn mods="push">Vue <span iam-btn-title-key>p</span>ush</iam-btn>
+	<iam-btn disabled title-if-disabled="Some suggestion"><label iam-btn-title>Vue titled & dis</label></iam-btn>
+	<iam-btn>Vue simplest</iam-btn>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+<script src="iconed-buttons.js"></script>
+<script>
+	new Vue({ el: '#example-05-content' });
+</script>
+</body>

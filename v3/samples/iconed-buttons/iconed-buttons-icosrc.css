@@ -1,0 +1,31 @@
+[iam-btn-title ~= i-chrome]:before {
+	background-image: url(ico/chrome.ico);
+}
+
+[iam-btn-title ~= i-edge]:before {
+	background-image: url(ico/edge.ico);
+}
+
+[iam-btn-title ~= i-opera]:before {
+	background-image: url(ico/opera.ico);
+}
+
+[iam-btn-title ~= i-print]:before {
+	background-image: url(ico/print.ico);
+}
+
+[iam-btn-title ~= i-refresh]:before {
+	background-image: url(ico/refresh.ico);
+}
+
+[iam-btn-title ~= i-setup]:before {
+	background-image: url(ico/setup.ico);
+}
+
+[iam-btn-title ~= i-stop]:before {
+	background-image: url(ico/stop.ico);
+}
+
+[iam-btn-title ~= i-visual-studio]:before {
+	background-image: url(ico/visual-studio.ico);
+}
