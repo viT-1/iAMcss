@@ -6,5 +6,13 @@
 	--light-iam-btn-background-color: ButtonFace;
 }
 
+/* <iam-theme = rounded> */
+[iam-btn]
+, [iam-dd-list] {
+	border-radius: 0; /* fallback if css3 is not supported or theme is not defined */
+	border-radius: var(--rounded-border-radius);
+}
+/* </iam-theme = rounded> */
+
 [iam-themes ~= dark] {
 }
