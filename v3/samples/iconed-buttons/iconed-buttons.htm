@@ -54,7 +54,7 @@ input[iam-example-disabled-chk]:checked
 <label iam-h="h1" role="heading">iAMCss (syntax v3.2.1) buttons</label>
 <p>Fast verdict: for buttons use buttons or web-components derived from buttons.
 For dropdowns use b (or another tag - another example),
-a for hyperlinks, label for titles/headings.</p>
+a for hyperlinks, label for titles/headings (not as button title).</p>
 <label iam-h="h2" role="heading" id="example-01" for="example-01-content">
 	Example 01: &lt;button&gt; & &lt;img&gt;</label>
 <input id="example-01-chk" iam-example-disabled-chk type="checkbox" />
@@ -67,20 +67,20 @@ a for hyperlinks, label for titles/headings.</p>
 		<span iam-btn-title>btn is enabled</span>
 	</button>
 	<button iam-btn="push">
-		<label iam-btn-title>Default <span iam-btn-title-key>a</span>ction</label>
+		<span iam-btn-title>Default <span iam-btn-title-key>a</span>ction</span>
 	</button>
 	<button iam-btn="bordered">
-		<label iam-btn-title>Bordered</label>
+		<span iam-btn-title>Bordered</span>
 	</button>
 	<button iam-btn="rounded">
-		<label iam-btn-title>Rounded</label>
+		<span iam-btn-title>Rounded</span>
 	</button>
 	<button iam-btn="rounded">
-		<img iam-btn-i src="ico/print.ico" /><label iam-btn-title>Rounded & iconed</label>
+		<img iam-btn-i src="ico/print.ico" /><span iam-btn-title>Rounded & iconed</span>
 	</button>
 	<button iam-btn="push" disabled title="Very strange use-case">
 		<img iam-btn-i src="ico/setup.ico" />
-		<label iam-btn-title>Default disabled</label>
+		<span iam-btn-title>Default disabled</span>
 	</button>
 	Title mix: <button iam-btn iam-btn-title>Minimal</button>
 </div>
@@ -91,19 +91,19 @@ a for hyperlinks, label for titles/headings.</p>
 <div id="example-01a-content" iam-example-area iam-themes="rounded dark"
 	role="section">
 	buttons: <button iam-btn disabled>
-		<label iam-btn-title="i i-stop">Don't do it!</label>
+		<span iam-btn-title="i i-stop">Don't do it!</span>
 	</button>
 	<button iam-btn>
-		<label iam-btn-title="i i-refresh">Refresh it!</label>
+		<span iam-btn-title="i i-refresh">Refresh it!</span>
 	</button>
 	<button iam-btn>
-		<label iam-btn-title="i i-setup">Setup</label>
+		<span iam-btn-title="i i-setup">Setup</span>
 	</button>
 	<button iam-btn>
-		<label iam-btn-title="i i-print">Print</label>
+		<span iam-btn-title="i i-print">Print</span>
 	</button>
 	b: <b iam-btn role="button">
-		<label iam-btn-title="i i-visual-studio">Run Visual Studio</label>
+		<span iam-btn-title="i i-visual-studio">Run Visual Studio</span>
 	</b>
 </div>
 <!--input tag in button tag is not working correctly-->
@@ -112,7 +112,7 @@ a for hyperlinks, label for titles/headings.</p>
 <p>Without standard button behaviour (disabled, tab, focus, imitate pushdown by moving text).</p>
 <div id="example-02-content" iam-example-area>
 	button: <button iam-btn="rounded">
-		<label iam-btn-title>Rounded</label>
+		<span iam-btn-title>Rounded</span>
 	</button>
 	b: <b iam-btn="rounded" disabled role="button" aria-haspopup="true">
 		<input iam-dd-chk-expanded id="example02[0]" type="checkbox" hidden />
@@ -151,31 +151,24 @@ a for hyperlinks, label for titles/headings.</p>
 		</ul>
 	</b>
 	<b iam-btn role="button" aria-haspopup="true">
-		<label iam-btn-title onclick="alert('Default, main button action')">Two actions, dd iconed p</label>
+		<span iam-btn-title onclick="alert('Default, main button action')">Two actions, dd iconed p</span>
 		<input iam-dd-chk-expanded id="example02[4]" type="checkbox" hidden />
 		<label iam-dd-btn="utf" for="example02[4]"><!--IE6fix--></label>
 		<ul iam-dd-list>
 			<li><button iam-btn="iam-dd-list">
-				<label iam-btn-title="i i-chrome">
-				<span iam-btn-title-key>C</span>hrome</label></button></li>
+				<span iam-btn-title="i i-chrome">
+				<span iam-btn-title-key>C</span>hrome</span></button></li>
 			<li><button iam-btn="iam-dd-list" disabled title="No way!">
-				<label iam-btn-title="i i-edge">
-				<span iam-btn-title-key>E</span>dge</label></button></li>
+				<span iam-btn-title="i i-edge">
+				<span iam-btn-title-key>E</span>dge</span></button></li>
 			<li><button iam-btn="iam-dd-list">
-				<label iam-btn-title="i i-opera">
-				<span iam-btn-title-key>O</span>pera</label></button></li>
+				<span iam-btn-title="i i-opera">
+				<span iam-btn-title-key>O</span>pera</span></button></li>
 			<li><b iam-btn iam-btn-title>Not iconed list item</b></li>
 		</ul>
 	</b>
 	<b iam-btn iam-btn-title role="button">Simplest b</b>
 	<b iam-btn iam-btn-title role="button" disabled>Disabled b</b>
-	<!--
-	dl dropdown with selected value:
-	<dl iam-btn role="button" aria-haspopup="true">
-		<dt iam-button-title>Char dl-dropdown</dt>
-		<dd>Some text</dd>
-	</dl>
-	-->
 </div>
 <label iam-h="h2" role="heading" id="example-03" for="example-03-content">
 	Example 03: &lt;a&gt; as buttons</label>
@@ -219,25 +212,25 @@ which make focus on all dropdown items at the same time!</p>
 <div id="example-04-content" iam-example-area>
 	<p iam-p="iam-example-area">
 		a: <a href="#" iam-ref-btn iam-ref-btn-title>Title mix pseudo-link</a>,
-		<a href="#" iam-ref-btn><img iam-ref-btn-i src="ico/print.ico"><label iam-ref-btn-title>Iconed</label></a>,
+		<a href="#" iam-ref-btn><img iam-ref-btn-i src="ico/print.ico"><span iam-ref-btn-title>Iconed</span></a>,
 		<a href="#" iam-ref-btn iam-ref-btn-title disabled>Disabled</a>,
-		<a href="#" iam-ref-btn><label iam-ref-btn-title>No mix pseudo-link</label></a>
+		<a href="#" iam-ref-btn><span iam-ref-btn-title>No mix pseudo-link</span></a>
 	</p>
 	<p iam-p="iam-example-area">
 		button: <button iam-ref-btn iam-ref-btn-title>Title mix pseudo-link</button>,
-		<button iam-ref-btn><img iam-ref-btn-i src="ico/print.ico"><label iam-ref-btn-title>Iconed</label></button>,
+		<button iam-ref-btn><img iam-ref-btn-i src="ico/print.ico"><span iam-ref-btn-title>Iconed</span></button>,
 		<button iam-ref-btn iam-ref-btn-title disabled>Disabled</button>,
-		<button iam-ref-btn disabled><img iam-ref-btn-i src="ico/print.ico"><label iam-ref-btn-title>Iconed & disabled</label></button>,
-		<button iam-ref-btn><label iam-ref-btn-title>No mix pseudo-link</label></button>
+		<button iam-ref-btn disabled><img iam-ref-btn-i src="ico/print.ico"><span iam-ref-btn-title>Iconed & disabled</span></button>,
+		<button iam-ref-btn><span iam-ref-btn-title>No mix pseudo-link</span></button>
 	</p>
 	<p iam-p="iam-example-area">Some other text</p>
 </div>
 <label iam-h="h2" role="heading" id="example-05" for="example-05-content">
 	Example 05: <s>web-components</s> (IE11) vue-components</label>
 <div id="example-05-content" iam-example-area>
-	<iam-btn mods="rounded bordered"><label iam-btn-title><span iam-btn-title-key>T</span>est vue component</label></iam-btn>
+	<iam-btn mods="rounded bordered"><span iam-btn-title><span iam-btn-title-key>T</span>est vue component</span></iam-btn>
 	<iam-btn mods="push">Vue <span iam-btn-title-key>p</span>ush</iam-btn>
-	<iam-btn disabled title-if-disabled="Some suggestion"><label iam-btn-title>Vue titled & dis</label></iam-btn>
+	<iam-btn disabled title-if-disabled="Some suggestion"><span iam-btn-title>Vue titled & dis</span></iam-btn>
 	<iam-btn>Vue simplest</iam-btn>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
