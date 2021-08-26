@@ -1,3 +1,4 @@
+(function() {
 Vue.component('iam-btn', {
 	props: ['mods', 'titleIfDisabled', 'disabled'],
 	template: '<button :iam-btn="iamMods" :disabled="disabled" :iam-btn-title="mixTitle" :title="ttl"><slot></slot></button>',
@@ -29,3 +30,4 @@ Vue.component('iam-btn', {
 		}
 	}
 });
+})();
