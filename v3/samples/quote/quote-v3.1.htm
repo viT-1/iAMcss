@@ -1,5 +1,5 @@
 <style>
-[iam_article] {
+[iam-article] {
 	--text_space: 4ex;
 	--text_secondary_space: 1em;
 
@@ -7,88 +7,88 @@
 	margin: var(--text_space) auto;
 }
 
-[iam_h *= -iam_article-] {
+[iam-h ~= iam-article] {
 	display: block;
 	font-style: normal;
 	font-weight: bolder;
 }
 
-[iam_h *= -iam_article-h1-] {
+[iam-h *= "iam_article h1"] {
 	font-size: 1.4em;
 	margin-bottom: var(--text_secondary_space);
 }
 
-[iam_p] {
+[iam-p] {
 	margin: 0 0 var(--text_secondary_space);
 	text-indent: var(--text_space);
 }
 
-[iam_p *= -iam_q-],
-[iam_q_li] {
+[iam-p ~= iam-q],
+[iam-q-li] {
 	font-size: larger;
 }
 
-[iam_q *= -iam_article-] {
+[iam-q ~= iam-article] {
 	background: #ccc;
 	margin: 0 0 var(--text_secondary_space);
 	padding: var(--text_space);
 }
 
-[iam_q_list] {
+[iam-q-list] {
 	margin: 0;
 	padding: 0;
 }
 
-[iam_q_li] {
+[iam-q-li] {
 	margin-left: var(--text_space);
 }
 
-[iam_q_li]::after {
+[iam-q-li]::after {
 	content: ';'
 }
 
-[iam_q_li]:last-child::after {
+[iam-q-li]:last-child::after {
 	content: '.'
 }
 
-[iam_q_footer] {
+[iam-q-footer] {
 	text-align: right;
 }
 
-[iam_q_copyright] {
+[iam-q-copyright] {
 	font-style: italic;
 }
 
-[iam_q_copyright_name]::before {
+[iam-q-copyright-name]::before {
 	content: '\00a9';
 	font-style: italic;
 }
 </style>
-<article iam_article>
-	<em iam_h="-iam_article-h1-" >Цитаты классиков о привычках</em>
-	<blockquote iam_q="-iam_article-">
-		<p iam_p="-iam_article-iam_q-">Три дела, однажды начавши, трудно кончить:</p>
-		<ol iam_q_list>
-			<li iam_q_li>вкушать хорошую пищу</li>
-			<li iam_q_li>беседовать с возвратившимся из похода другом</li>
-			<li iam_q_li>чесать, где чешется</li>
+<article iam-article>
+	<em iam-h="iam-article h1" >Цитаты классиков о привычках</em>
+	<blockquote iam-q="iam-article">
+		<p iam-p="iam-article iam-q">Три дела, однажды начавши, трудно кончить:</p>
+		<ol iam-q-list>
+			<li iam-q-li>вкушать хорошую пищу</li>
+			<li iam-q-li>беседовать с возвратившимся из похода другом</li>
+			<li iam-q-li>чесать, где чешется</li>
 		</ol>
-		<footer iam_q_footer>
-			<p iam_q_copyright><cite iam_q_copyright_name>Козьма Прутков</cite></p>
+		<footer iam-q-footer>
+			<p iam-q-copyright><cite iam-q-copyright-name>Козьма Прутков</cite></p>
 		</footer>
 	</blockquote>
-	<p iam_p="-iam_article-">
+	<p iam-p="iam-article">
 		Козьма́ Петро́вич Прутко́в — литературная маска, под которой в 50—60-е годы XIX века
 		выступали поэты Алексей Константинович Толстой и братья Жемчужниковы
 		(Владимир, Алексей и Александр Михайловичи).
 	</p>
-	<blockquote iam_q="-iam_article-">
-		<p iam_p="-iam_article-iam_q-">Чем больше привычек, тем меньше свободы.</p>
-		<footer iam_q_footer>
-			<p iam_q_copyright><cite iam_q_copyright_name>Иммануил Кант</cite></p>
+	<blockquote iam-q="iam-article">
+		<p iam-p="iam-article iam-q">Чем больше привычек, тем меньше свободы.</p>
+		<footer iam-q-footer>
+			<p iam-q-copyright><cite iam-q-copyright-name>Иммануил Кант</cite></p>
 		</footer>
 	</blockquote>
-	<p iam_p="-iam_article-">
+	<p iam-p="iam-article">
 		Иммануил Кант — немецкий философ и один из центральных мыслителей эпохи Просвещения.
 	</p>
 </article>
