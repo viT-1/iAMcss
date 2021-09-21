@@ -467,5 +467,5 @@ html-тэга, а не множество, тогда как на одном т�
 - [FontAwesome чекбоксы/радио-кнопки](http://codepen.io/viT-1/pen/GrBwbE) с применением iAMcss 2.0 и поддержкой клавиатуры (2017.02.15)
 - Виджет vp-tree__list JSON [по iAMcss 2.0](https://codepen.io/viT-1/pen/XVxEgX) и <del title="ico sources broken">SVG-иконками</del> разных размеров (2018.01.18)
 - [iam-tree-list](https://vit-1.github.io/iAMcss-samples/v3/json-tree/) JSON по iAMcss 3.1.1 ([код 2021.09.17](https://github.com/viT-1/iAMcss-samples/tree/03de30ba3c252afdec146d49530bcedadb22a565/v3/json-tree))
-- [iam-tree-list XSLT + IE8](https://vit-1.github.io/iAMcss/samples/tree/list.xml) (2018.01.24)
+- [iam-tree-list XSLT + IE8](https://vit-1.github.io/iAMcss-samples/v3/xml-tree/) (2018.01.24)
 - [Стилизованный select](https://vit-1.github.io/iAMcss-samples/v3/pure-css-select/) с применением checkbox-hack и возможностью группировки. JS только для обеспечения закрытия/раскрытия списка по клику на item или placeholder. CSS-флаги стран. ([код 2021.09.21](https://github.com/viT-1/iAMcss-samples/tree/b58077b27c4ed8581e680d04b4384144749de65d/v3/pure-css-select))
