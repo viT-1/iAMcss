@@ -51,7 +51,7 @@ Cодержимое репозитория свободно для распро�
 
 # Facepalm code
 [Vuetify v2.5.8](https://github.com/vuetifyjs/vuetify/blob/0f980ad51e22ba82e46f750eadcb7a586c802553/packages/vuetify/src/components/VChip/VChip.sass#L188):
-```sass
+```scss
 // Needs increased specificity
   &.v-chip.v-chip
     background-color: transparent !important
