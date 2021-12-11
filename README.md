@@ -28,12 +28,15 @@ Cодержимое репозитория свободно для распро�
 - [BEViS](https://github.com/bevis-ui/docs/blob/master/faq/bem-vs-bevis.md)
 - [MCSS](https://github.com/operatino/MCSS#readme) (автор методологии [рекомендует БЭМ](https://habrahabr.ru/post/256109/#comment_8442829))
 - [AMCSS](https://amcss.github.io/)
+- [Atomic BEM](https://css-tricks.com/abem-useful-adaptation-bem/)
 - [AzaBEM](http://azagroup.ru/azabem-css-method/)
 - [OPOR](http://nano.sapegin.ru/all/opor-methodology)
 - [FUN](https://benfrain.com/enduring-css-writing-style-sheets-rapidly-changing-long-lived-projects/)
 - [SMACSS](https://smacss.com/) (автор методологии [рекомендует БЭМ](https://twitter.com/snookca/status/606908589295464449))
 - [Atomic CSS](https://acss.io/) и его наследник [Tailwind CSS](https://tailwindcss.com/) (как по мне, так это сомнительный путь)
 
+- [Keep your CSS selectors short](https://csswizardry.com/2012/05/keep-your-css-selectors-short/)
+- [CSS Guidelines](https://github.com/chris-pearce/css-guidelines)
 - [Примеры вёрстки с упором на WAI-ARIA-атрибуты](http://oaa-accessibility.org/)
 - [Рекомендации](https://github.com/mediaelement/mediaelement/issues/1849#issuecomment-249254251) по рефакторингу эскалированной специфичности
 - [CSS selectors performance 2018](https://www.sitepoint.com/optimizing-css-id-selectors-and-other-myths/)
@@ -41,4 +44,15 @@ Cодержимое репозитория свободно для распро�
 - [JS performance of data-attributes](https://jsperf.com/data-dataset)
 - [What shouldn’t I use data attributes for?](http://html5doctor.com/html5-custom-data-attributes/)
 - [WHATWG html custom attribute naming conventions](https://github.com/whatwg/html/issues/2271)
+- [CSS properties inheritance](https://meyerweb.com/eric/articles/webrev/199903.html)
+- [CSS Custom Properties In The Cascade](https://www.smashingmagazine.com/2019/07/css-custom-properties-cascade/)
 - [Theming with css-variables](https://www.sitepoint.com/css-theming-custom-properties-javascript/)
+- [[disabled] or :disabled](https://stackoverflow.com/questions/20141450/should-i-use-css-disabled-pseudo-class-or-disabled-attribute-selector-or-is-i)
+
+# Facepalm code
+:tm:[Vuetify](https://github.com/vuetifyjs/vuetify/blob/0f980ad51e22ba82e46f750eadcb7a586c802553/packages/vuetify/src/components/VChip/VChip.sass#L188)
+```
+// Needs increased specificity
+  &.v-chip.v-chip
+    background-color: transparent !important
+```
