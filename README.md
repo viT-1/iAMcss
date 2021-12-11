@@ -57,7 +57,7 @@ Cодержимое репозитория свободно для распро�
     background-color: transparent !important
 ```
 
-MaterializeCSS 1.0.0
+MaterializeCSS 1.0.0<br />
 [1](https://github.com/Dogfalo/materialize/blob/80e8ed370487aaf1e2185b028f7deda40da94eb9/dist/css/materialize.css#L5514):
 ```css
 .btn-flat.disabled, .btn-flat.btn-flat[disabled] {
@@ -69,7 +69,8 @@ MaterializeCSS 1.0.0
 
 [2](https://github.com/Dogfalo/materialize/blob/80e8ed370487aaf1e2185b028f7deda40da94eb9/dist/css/materialize.css#L4924):
 ```css
-.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
+.card .card-action
+a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
   color: #ffd8a6;
 }
 ```
