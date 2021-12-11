@@ -50,7 +50,7 @@ Cодержимое репозитория свободно для распро�
 - [[disabled] or :disabled](https://stackoverflow.com/questions/20141450/should-i-use-css-disabled-pseudo-class-or-disabled-attribute-selector-or-is-i)
 
 # Facepalm code
-:tm:[Vuetify](https://github.com/vuetifyjs/vuetify/blob/0f980ad51e22ba82e46f750eadcb7a586c802553/packages/vuetify/src/components/VChip/VChip.sass#L188)
+[Vuetify](https://github.com/vuetifyjs/vuetify/blob/0f980ad51e22ba82e46f750eadcb7a586c802553/packages/vuetify/src/components/VChip/VChip.sass#L188):
 ```
 // Needs increased specificity
   &.v-chip.v-chip
