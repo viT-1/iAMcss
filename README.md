@@ -50,9 +50,33 @@ Cодержимое репозитория свободно для распро�
 - [[disabled] or :disabled](https://stackoverflow.com/questions/20141450/should-i-use-css-disabled-pseudo-class-or-disabled-attribute-selector-or-is-i)
 
 # Facepalm code
-[Vuetify](https://github.com/vuetifyjs/vuetify/blob/0f980ad51e22ba82e46f750eadcb7a586c802553/packages/vuetify/src/components/VChip/VChip.sass#L188):
-```
+[Vuetify v2.5.8](https://github.com/vuetifyjs/vuetify/blob/0f980ad51e22ba82e46f750eadcb7a586c802553/packages/vuetify/src/components/VChip/VChip.sass#L188):
+```sass
 // Needs increased specificity
   &.v-chip.v-chip
     background-color: transparent !important
 ```
+
+MaterializeCSS 1.0.0
+[1](https://github.com/Dogfalo/materialize/blob/80e8ed370487aaf1e2185b028f7deda40da94eb9/dist/css/materialize.css#L5514):
+```css
+.btn-flat.disabled, .btn-flat.btn-flat[disabled] {
+  background-color: transparent !important;
+  color: #b3b2b2 !important;
+  cursor: default;
+}
+```
+
+[2](https://github.com/Dogfalo/materialize/blob/80e8ed370487aaf1e2185b028f7deda40da94eb9/dist/css/materialize.css#L4924):
+```css
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
+  color: #ffd8a6;
+}
+```
+
+[UIkit v3.9.4](https://github.com/uikit/uikit/blob/41d14ad79e0d11392975f840e651e35e42ff24f9/dist/css/uikit.css#L5956)
+```css
+.uk-dotnav > * > * {
+  display: block;
+```
+И все [селекторы-модификаторы](https://github.com/uikit/uikit/blob/41d14ad79e0d11392975f840e651e35e42ff24f9/dist/css/uikit.css#L7229) с `!important`
