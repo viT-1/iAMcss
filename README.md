@@ -81,3 +81,13 @@ a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):h
   display: block;
 ```
 И все [селекторы-модификаторы](https://github.com/uikit/uikit/blob/41d14ad79e0d11392975f840e651e35e42ff24f9/dist/css/uikit.css#L7229) с `!important`
+
+[Bootstrap v5.1.3](https://github.com/twbs/bootstrap/blob/1df098361cac04217d6a464c80e890c4335ecb5c/scss/mixins/_visually-hidden.scss)
+```scss
+@mixin visually-hidden() {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  ...
+```
+and all helpers after [line 6573](https://github.com/twbs/bootstrap/blob/1df098361cac04217d6a464c80e890c4335ecb5c/dist/css/bootstrap.css#L6573)
