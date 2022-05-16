@@ -1,5 +1,70 @@
-# iAMcss 3.1.2
 А теперь кратко-рецептурно и конкретно =)
+
+v3.2.0 привносит строгое оформление с помощью богатых возможностей [css-variables](https://dev.to/idoshamun/theming-with-css-variables-322f)
+и разделения селекторов на "контекстные" и "основные/индексные".
+
+## i-am-css v3.2.0
+Разделять слова многословных атрибутов и их значений следует символом `-`,
+набор модификаторов в виде значения атрибута пишется через пробел.
+
+Всё необходимое css-оформление указываются в "основном" ("index") селекторе элемента через css-переменные,
+без указания модификаторов, тем самым открывая "интерфейс" к своему оформлению.
+Оформление, зависящее от модификатора, указывается в "контекстном" селекторе размещённом ранее
+(соответствующие стили необходимо включать раньше стилей компонент),
+в нём указывается значение css-переменной из списка перечисленных переменных в "основном" селекторе.
+В контекстных селекторах размещаются только! значения css-переменных, другие css-свойства указывать запрещено.
+"Основные селекторы" могут быть одновременно контекстом для примиксованных "основных",
+потому содержать и определения переменных и обычные css-свойства.
+
+Например:
+```css
+/* iam-themes на корневой html-элемент.
+Этот способ не рекомендуется - лучше подключать просто нужный файл темы thm-simple.css */
+[iam-themes ~= "thm-simple"] {
+	--popup-header-back-color: #ccc;
+}
+
+/* контекстный/модифицирующий селектор со значением переменных */
+[iam-popup-header ~= "warn"] {
+	--popup-header-back-color: red;
+}
+
+/* "Основной" селектор элемента header блока popup */
+[iam-popup-header] {
+	background-color: var(--popup-header-back-color, transparent);
+}
+```
+
+Необходимо учитывать тот момент, что компоненты могут быть вложены иерархически,
+потому такой код, при иерархии collapser'ов по динамически изменяемым модификаторам,
+сработает некорректно - все кнопки будут показывать то состояние, чей контекстный селектор,
+при соответствующем модификаторе в атрибуте одного из iam-collapser'ов определён последним:
+```css
+/* контекстный селектор */
+[iam-collapser ~= "is-open:0"] {
+	--iam-collapser-btn-symbol: "\25be";
+	--iam-collapser-content-area-display: none;
+}
+
+/* контекстный селектор */
+[iam-collapser ~= "is-open:1"] {
+	--iam-collapser-btn-symbol: "\25b4";
+	--iam-collapser-content-area-display: block;
+}
+
+/* основной селектор элемента btn */
+[iam-collapser-btn]::after {
+	content: var(--iam-collapser-btn-symbol);
+}
+
+/* основной селектор элемента content-area */
+[iam-collapser-content-area] {
+	display: var(--iam-collapser-content-area-display);
+}
+```
+
+В "основном" селекторе элемента допустимо прописывать fallback'и на случай отсутствия определения переменнойе.
+Считается, что css-переменные обязательно поддерживаются браузером клиента, иначе iAMcss v3 использовать не стоит.
 
 ## Выбор html-элементов
 Выбор тэга, на который вешается iam-атрибут рекомендуется основывать на идеологии "naked css"
@@ -43,20 +108,15 @@
 Значение атрибута содержит только модификаторы, в число которых, при необходимости,
 входят отсылки на родительские блоки любого уровня вложенности.
 
-У блоков не бывает модификаторов? Бывают, вопрос лишь в том, где их размещать.
-Модификатор блока подразумевает использование стилей исходного блока,
-иначе это новый блок и iam-атрибут должен иметь другое название.
-Модификатор блока должен быть в качестве модификатора каждого элемента блока, в том числе корневого.
+У блоков не бывает модификаторов? Бывают! Должны быть определены как контекстные селекторы (ранее элементов),
+и содержать значения переменных для зависимых от этого модификатора элементов блока.
+
 Если модификатор динамически не меняется, есть смысл подумать о переносе имени модификатора
 из значения iam-атрибута в его наименование.
 
-Модификаторы, кроме контекстов родительских блоков, могут иметь либо просто префикс "m" (modificator),
-либо "v" (view), либо "s" (state), либо классический "-" (получается --open), а могут и не иметь вообще.
-Последний вариант предпочтительнее, чтобы разработчик не тратил время на выбор - "view это или state?"
-
 В основном используется атрибутивный селектор ~=, который позволяет вычислять строки разделённые пробелами,
 но для комбинации соседних, чтобы не повышать специфичность перечислением `[att  ~= m1][att ~= m2]`,
-приходится использовать селектор *= например: `[att *= "m1 m2"]`
+иногда приходится использовать селектор `*=`, например: `[att *= "m1 m2"]`
 
 Также допускаются модификаторы с двоеточием, например: `[list-item ~= "is-open:true"]`
 
@@ -85,55 +145,118 @@
 </div>
 ```
 ```css
-/* <iam-plain-list> */
-[iam-plain-list] {
-	margin: 0;
-	padding: 0;
+[iam-links] {
+  --iam-links-font-size: 16px;
 }
-
-[iam-plain-list-item] {
-	display: inline-block;
-}
-/* </iam-plain-list> */
 
 /* <iam-plain-list-item--breadcrumbs> */
 [iam-plain-list-item ~= breadcrumbs]:after {
-	content: ">";
-	margin: 0;
-	padding: 0 0 0 1ex;
-}
-
-[iam-plain-list-item ~= breadcrumbs]:last-child:after {
-	display: none;
+	--iam-plain-list-item-after-content: ">";
+	--iam-plain-list-item-after-margin: 0;
+	--iam-plain-list-item-after-padding: 0 calc(var(--iam-links-font-size)/2);
 }
 /* </iam-plain-list-item--breadcrumbs> */
 
-/* <iam-links> */
-[iam-links-list] {
-	display: block;
-	padding: 1ex 1em;
+/* <iam-plain-list> */
+[iam-plain-list] {
+	--iam-plain-list-margin: 0;
+	--iam-plain-list-padding: 0;
+  
+	--iam-plain-list-item-display: inline-block;
 }
-/* </iam-links> */
+
+[iam-plain-list-item]:last-child {
+	--iam-plain-list-item-after-display: none;
+}
+
+[iam-plain-list] {
+	font-size: 0;
+	margin: var(--iam-plain-list-margin);
+	padding: var(--iam-plain-list-padding);
+}
+
+[iam-plain-list-item] {
+	font-size: var(--iam-links-font-size);
+	display: var(--iam-plain-list-item-display);
+}
+
+[iam-plain-list-item]:after {
+	content: var(--iam-plain-list-item-after-content);
+	display: var(--iam-plain-list-item-after-display);
+	margin: var(--iam-plain-list-item-after-margin);
+	padding: var(--iam-plain-list-item-after-padding);
+}
+/* </iam-plain-list> */
 
 /* <iam-links--main> */
+[iam-links-list] {
+	--iam-links-list-padding: calc(var(--iam-links-font-size)/2) var(--iam-links-font-size);
+}
+
 [iam-links-list ~= main] {
-	padding-left: 0;
+	--iam-link-border-right: solid 1px LinkText;
+	--iam-links-list-padding: calc(var(--iam-links-font-size)/2) var(--iam-links-font-size) calc(var(--iam-links-font-size)/2) 0;
 }
 
 [iam-link ~= main] {
-	border-right: solid 1px white;
-	padding: 0 1em;
+	--iam-link-padding: 0 var(--iam-links-font-size);
 }
 /* </iam-links--main> */
+
+/* <iam-links> */
+[iam-links-list] {
+	padding: var(--iam-links-list-padding);
+  
+	background: #eee;
+	display: block;
+	margin-bottom: var(--iam-links-font-size);
+}
+
+/* should be "iam-links-list-item" */
+[iam-plain-list-item]:last-child {
+	--iam-link-border-right: unset transparent;
+}
+
+[iam-link] {
+	padding: var(--iam-link-padding);
+	border-right: var(--iam-link-border-right);
+}
+/* </iam-links> */
 ```
 
-### Контекст. Родительские/контекстные модификаторы
-v3 позволяет уменьшить [специфичность](https://developer.mozilla.org/ru/docs/Web/CSS/Specificity) от иерархичности селекторов, размещая контекст в рамках скобок "[]", а не через пробел: `[iam-p ~= iam-article]`. Но и специфичности не стоит избегать любой ценой (но стремиться её уменьшить).
-Если всё же требуется написать селектор через пробел, то оканчиваться он должен (за исключением псевдоэлементов и состояний ":")
-атрибутивным селектором, а не именем тэга или *.
-Но при первой же возможности рекомендуется отрефакторить код с "пробельными" селекторами, например [так](https://github.com/viT-1/iAMcss-samples/commit/4bcecb8d9f85b9bd9c80e4d5725ca96d2cc2ddfa).
+### Контекстный селектор одного из родительских блоков (ancestors)
+i-am-css позволяет уменьшить [специфичность](https://developer.mozilla.org/ru/docs/Web/CSS/Specificity) от иерархичности селекторов, размещая контекст в рамках скобок "[]", а не через пробел, например указывая вложенность как контекст блока: `[iam-p ~= iam-article]`.
 
-Контекстное оформление также возможно реализовать через богатые возможности [css-variables](https://dev.to/idoshamun/theming-with-css-variables-322f). [Поддержка браузеров](https://caniuse.com/css-variables) и [полифил](https://github.com/nuxodin/ie11CustomProperties) для IE11.
+Если всё же требуется написать "контекстный" селектор через пробел (например, чтобы учесть два контекста сразу),
+то оканчиваться он должен (за исключением псевдоэлементов и стандартных состояний типа `:disabled`) атрибутивным i-am-css селектором,
+а не именем тэга или *.
+При первой же возможности рекомендуется отрефакторить код с "пробельными" селекторами, например [так](https://github.com/viT-1/iAMcss-samples/commit/4bcecb8d9f85b9bd9c80e4d5725ca96d2cc2ddfa).
+
+В общем смысле рефакторинг пробельных селекторов заключается в определении более специфичных переменных.
+Например при требуется для динамического модификатора (state) задать второй контекст - тему:
+```css
+[iam-collapser ~= "is-open:0"] {
+	--iam-collapser-btn-symbol: "\25be";
+	--iam-collapser-content-area-display: none;
+}
+```
+Рефакторим в:
+```css
+[iam-themes ~= "thm-simple"] {
+	--iam-collapser-btn-symbol-closed: "\25be";
+	--iam-collapser-btn-symbol-open: "\25b4";
+}
+
+[iam-collapser ~= "is-open:0"] {
+	--iam-collapser-btn-symbol: var(--iam-collapser-btn-symbol-closed);
+	--iam-collapser-content-area-display: none;
+}
+```
+Тогда `--iam-collapser-btn-symbol-closed` и	`--iam-collapser-btn-symbol-open` возможно будет
+переопределить не повышая специфичность, но надо будет думать, в каком порядке соответствующие
+селекторы будут подключены.
+
+Основные же индексные селекторы должны определяться строго минимально без пробелов: `[...]`
 
 ## iam-атрибуты-модификаторы
 Идея почерпнута [отсюда](https://github.com/amcss/attribute-module-specification/issues/29).
@@ -145,3 +268,5 @@ v3 позволяет уменьшить [специфичность](https://de
 Компонентный подход подразумевает, что все элементы блока доступны только внутри компонента, но не в общей вёрстке. При компонентном подходе не получится миксовать компоненты, но миксы на некомпонентых элементах по прежнему будут доступны.
 
 Если используются компоненты, то наименование блока становится html-элементом, а все его модификаторы передаются как отдельные атрибуты, с последующим рендерингом в обычную вёрстку по iamCSS.
+
+[Поддержка браузеров](https://caniuse.com/css-variables) и [полифил](https://github.com/nuxodin/ie11CustomProperties) для IE11.
