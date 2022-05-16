@@ -147,6 +147,7 @@ v3.2.0 привносит строгое оформление с помощью 
 ```css
 [iam-links] {
   --iam-links-font-size: 16px;
+  --iam-links-list-padding: calc(var(--iam-links-font-size)/2) var(--iam-links-font-size);
 }
 
 /* <iam-plain-list-item--breadcrumbs> */
@@ -189,10 +190,6 @@ v3.2.0 привносит строгое оформление с помощью 
 /* </iam-plain-list> */
 
 /* <iam-links--main> */
-[iam-links-list] {
-	--iam-links-list-padding: calc(var(--iam-links-font-size)/2) var(--iam-links-font-size);
-}
-
 [iam-links-list ~= main] {
 	--iam-link-border-right: solid 1px LinkText;
 	--iam-links-list-padding: calc(var(--iam-links-font-size)/2) var(--iam-links-font-size) calc(var(--iam-links-font-size)/2) 0;
