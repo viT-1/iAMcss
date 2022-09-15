@@ -1,10 +1,11 @@
 {
 	"name": "iamcss",
-    "version": "3.2.0",
+    "version": "3.2.1",
 	"description": "Documentation about iAMcss methodology",
 	"keywords": [
 		"BEM",
 		"CSS",
+		"css variables",
 		"markup",
 		"methodology"
 	],
