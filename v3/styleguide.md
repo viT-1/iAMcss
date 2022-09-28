@@ -266,6 +266,28 @@ iam-css позволяет уменьшить [специфичность](https
 	font-size: var(--iam-h-font-size);
 }
 ```
+либо с применением техники [toggler](https://github.com/propjockey/css-sweeper#basics-of-space-toggle)'а
+```css
+[iam-article] {
+	--iam-article--: ;
+}
+
+[iam-h ~= h1] {
+	--iam-article-h-font-size: var(--iam-article--) 14px;
+	--iam-h-font-size: var(--iam-article-h-font-size, 20px);
+}
+
+[iam-h ~= h2] {
+	--iam-article-h-font-size: var(--iam-article--) 12px;
+	--iam-h-font-size: var(--iam-article-h-font-size, 18px);
+}
+
+
+[iam-h] {
+	font-size: var(--iam-h-font-size);
+}
+
+```
 
 Если всё же требуется написать "контекстный" селектор через пробел (например, чтобы учесть два контекста сразу),
 то оканчиваться он должен (за исключением псевдоэлементов и стандартных состояний типа `:disabled`) атрибутивным iam-css селектором,
