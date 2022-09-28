@@ -282,7 +282,6 @@ iam-css позволяет уменьшить [специфичность](https
 	--iam-h-font-size: var(--iam-article-h-font-size, 18px);
 }
 
-
 [iam-h] {
 	font-size: var(--iam-h-font-size);
 }
