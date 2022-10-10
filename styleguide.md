@@ -408,6 +408,8 @@ aria-selected, приводит к усложнению и увеличению 
 Но использование `data-themes` не будет соответствовать стратегии mobile first, так как необходимо
 будет подключить все файлы стилей, а это траффик.
 
+!!! Особое внимание стоит обратить на [style queries](https://una.im/style-queries/#5-interactions-in-css).
+
 Рассмотрим файлы-шкурки/темы (skins).
 Если раньше мы писали что-то типа `.dark .myNumberInputLabel`,
 то теперь, используя возможности [css-variables](https://medium.com/front-end-weekly/theming-with-css-variables-e4f30343c7c7)
