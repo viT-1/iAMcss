@@ -32,6 +32,7 @@ Cодержимое репозитория свободно для распро�
 - [GPS](https://github.com/jescalan/gps), автор Jeff Escalante ([статья](https://medium.com/@jescalan/bem-is-terrible-f421495d093a))
 - [Atomic BEM](https://css-tricks.com/abem-useful-adaptation-bem/) на основе [Atomic Design](https://atomicdesign.bradfrost.com/table-of-contents/) но и автор Atomic Design тоже [глупости порой делает](https://github.com/bradfrost/atomic-design/issues/125)
 - [Atomic CSS](https://acss.io/) и его наследник [Tailwind CSS](https://tailwindcss.com/) (как по мне, так [это сомнительный путь](http://vit-1.blogspot.com/2021/11/tailwind-css-bem.html), но для препроцессоров такой [подход годится](https://willwillems.com/posts/using-scoped-bem-with-tailwind.html#tailwind))
+- [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/) вместе с БЭМ даёт [BEMIT](https://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) - тот же БЭМ, но с префиксами.
 - [AzaBEM](http://azagroup.ru/azabem-css-method/)
 - [OPOR](http://nano.sapegin.ru/all/opor-methodology)
 - [FUN](https://benfrain.com/enduring-css-writing-style-sheets-rapidly-changing-long-lived-projects/)
