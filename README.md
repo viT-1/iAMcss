@@ -39,6 +39,7 @@ Cодержимое репозитория свободно для распро�
 - [SMACSS](https://smacss.com/) (автор методологии [рекомендует БЭМ](https://twitter.com/snookca/status/606908589295464449))
 
 - [Keep your CSS selectors short](https://csswizardry.com/2012/05/keep-your-css-selectors-short/)
+- [CSS stats](https://cssstats.com/), инструмент для оценки стилей.
 - [CSS Guidelines](https://github.com/chris-pearce/css-guidelines)
 - [Примеры вёрстки с упором на WAI-ARIA-атрибуты](http://oaa-accessibility.org/)
 - [Рекомендации](https://github.com/mediaelement/mediaelement/issues/1849#issuecomment-249254251) по рефакторингу эскалированной специфичности
