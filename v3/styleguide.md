@@ -10,7 +10,7 @@ CSS-свойства элементов блока могут содержать
 не только контекстом модификации элемента, но и контекстом любого блока (и их модификаций).
 Для ie11 возможна поддержка с помощью
 - [ie11-custom-properties](https://github.com/nuxodin/ie11CustomProperties)
-- [css-vars-ponyfill](https://github.com/jhildenbiddle/css-vars-ponyfill)
+- [css-vars-ponyfill](https://github.com/jhildenbiddle/css-vars-ponyfill) ([не умеет](https://github.com/jhildenbiddle/css-vars-ponyfill/issues/106) работать с local files)
 
 v3.2.1 становится возможным передать контекст вниз по иерархии с помощью [space-toggler](https://github.com/propjockey/css-sweeper#basics-of-space-toggle), позволяя всю логику разместить поближе к основному (index) селектору.
 Способ неоднозначный, поскольку если следовать принципам ООП, то любой чёрный ящик не должен знать,
